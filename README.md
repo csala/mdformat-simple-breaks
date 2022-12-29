@@ -4,17 +4,7 @@
 [![codecov.io][cov-badge]][cov-link]
 [![PyPI version][pypi-badge]][pypi-link]
 
-An [mdformat][mdformat] plugin to render *thematic breaks* using three dashes
-
-```
----
-```
-
-instead of 70 underscores
-
-```
-________________________________________________________________________________
-```
+An [mdformat][mdformat] plugin to make thematic breaks rendering style configurable.
 
 ## Install
 
@@ -23,6 +13,8 @@ Install with:
 ```bash
 pip install mdformat-simple-breaks
 ```
+
+After the installation, the plugin will be automatically used when running `mdformat` as usual.
 
 ## Usage as a [pre-commit](https://pre-commit.com) hook
 
@@ -36,6 +28,18 @@ Add the following to your `.pre-commit-config.yaml`:
       additional_dependencies:
         - mdformat-simple-breaks
 ```
+
+## Configuration
+
+By default this plugin will render the thematic breaks as a line made of three dashes `---`,
+but this can be modified by adding the following two lins in the [.mdformat.toml configuration
+file][mdformat-toml]:
+
+```
+thematic_breaks_character = "-"  # possible values: {"-", "_", "*"}
+thematic_breaks_length = 3       # possible values: INTEGER between 3 and 80.
+```
+
 
 ## Plugin rationale
 
@@ -68,3 +72,4 @@ using the common three dash style when preferred.
 [commonmark-spec]: https://spec.commonmark.org/0.30/#thematic-breaks
 [style-change]: https://github.com/executablebooks/mdformat/issues/69
 [mdformat-thematic-breaks]: https://mdformat.readthedocs.io/en/stable/users/style.html#thematic-breaks
+[mdformat-toml]: https://mdformat.readthedocs.io/en/stable/users/configuration_file.html
