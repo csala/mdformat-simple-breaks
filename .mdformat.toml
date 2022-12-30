@@ -1,0 +1,5 @@
+wrap = 99                        # possible values: {"keep", "no", INTEGER}
+number = true                    # possible values: {false, true}
+end_of_line = "lf"               # possible values: {"lf", "crlf", "keep"}
+thematic_breaks_character = "-"  # possible values: {"-", "_", "*"}
+thematic_breaks_length = 3       # possible values: 3 <= INTEGER
