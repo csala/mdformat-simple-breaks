@@ -65,8 +65,9 @@ def update_mdit(mdit: MarkdownIt) -> None:
 
 
 def hr(node: RenderTreeNode, context: RenderContext) -> str:
-    character = context.options["mdformat"]["thematic_breaks_character"]
-    length = context.options["mdformat"]["thematic_breaks_length"]
+    options = context.options["mdformat"]
+    character = options.get("thematic_breaks_character", "-")
+    length = options.get("thematic_breaks_length", 3)
     return character * length
 
 
